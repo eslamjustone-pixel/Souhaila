@@ -1,309 +1,122 @@
-<!DOCTYPE html><html lang="ar" dir="rtl"><head>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>For Souhaila ❤️</title>  <style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Souhaila ❤️</title>
 
+  <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
       min-height: 100vh;
-      font-family: Arial, sans-serif;
-      background:
-        radial-gradient(circle at top, #ffedf5, transparent 45%),
-        linear-gradient(135deg, #180812, #3b1025, #180812);
-
-      color: white;
-
       display: flex;
       justify-content: center;
       align-items: center;
-
-      overflow: hidden;
-    }
-
-    /* القلوب */
-
-    .floating-heart {
-      position: fixed;
-      bottom: -30px;
-
-      font-size: 20px;
-
-      opacity: 0.7;
-
-      animation: floatUp linear infinite;
-
-      pointer-events: none;
-    }
-
-    @keyframes floatUp {
-
-      from {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-      }
-
-      10% {
-        opacity: 0.8;
-      }
-
-      100% {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-      }
-
-    }
-
-    /* شاشة الدخول */
-
-    .login {
-
-      width: 90%;
-      max-width: 430px;
-
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #180812, #4a1730);
+      color: white;
       text-align: center;
+    }
 
-      padding: 45px 28px;
-
-      border-radius: 35px;
-
-      background: rgba(255,255,255,0.08);
-
-      border: 1px solid rgba(255,255,255,0.15);
-
-      backdrop-filter: blur(20px);
-
-      box-shadow:
-        0 25px 80px rgba(0,0,0,0.5);
-
-      animation: appear 1.5s ease;
-
+    .box {
+      width: 90%;
+      max-width: 400px;
+      padding: 40px 25px;
+      border-radius: 30px;
+      background: rgba(255,255,255,.1);
+      backdrop-filter: blur(15px);
     }
 
     .heart {
-
-      font-size: 75px;
-
+      font-size: 70px;
       margin-bottom: 20px;
-
-      animation: heartbeat 1.4s infinite;
-
     }
 
     h1 {
-
-      font-size: 38px;
-
-      margin-bottom: 12px;
-
-      letter-spacing: 1px;
-
+      margin-bottom: 15px;
     }
 
-    .subtitle {
-
-      color: #ffd7e6;
-
-      font-size: 17px;
-
-      line-height: 1.8;
-
-      margin-bottom: 30px;
-
+    p {
+      color: #ffd7e5;
+      margin-bottom: 25px;
     }
 
     input {
-
       width: 100%;
-
-      padding: 16px;
-
-      border-radius: 30px;
-
-      border: 1px solid rgba(255,255,255,0.25);
-
-      background: rgba(255,255,255,0.1);
-
-      color: white;
-
+      padding: 15px;
+      border: none;
+      border-radius: 25px;
       text-align: center;
-
       font-size: 18px;
-
-      outline: none;
-
       margin-bottom: 15px;
-
-    }
-
-    input::placeholder {
-
-      color: #e9c7d5;
-
+      outline: none;
     }
 
     button {
-
       width: 100%;
-
       padding: 15px;
-
       border: none;
-
-      border-radius: 30px;
-
-      background: linear-gradient(
-        135deg,
-        #ff5c8a,
-        #e83e70
-      );
-
+      border-radius: 25px;
+      background: #e75480;
       color: white;
-
       font-size: 18px;
-
-      cursor: pointer;
-
-      box-shadow:
-        0 10px 30px rgba(255,80,130,0.35);
-
-      transition: 0.3s;
-
-    }
-
-    button:active {
-
-      transform: scale(0.96);
-
     }
 
     #error {
-
       display: none;
-
       margin-top: 15px;
-
       color: #ff9ab8;
-
-      font-size: 14px;
-
     }
+  </style>
+</head>
 
-    .secret {
+<body>
 
-      margin-top: 25px;
+  <div class="box">
 
-      font-size: 13px;
+    <div class="heart">❤️</div>
 
-      color: #cfa9b8;
+    <h1>Souhaila</h1>
 
-    }
+    <p>المكان ده معمول مخصوص ليكي ❤️</p>
 
-    @keyframes heartbeat {
+    <input
+      type="password"
+      id="password"
+      placeholder="اكتبي الباسورد">
 
-      0%,100% {
-        transform: scale(1);
+    <button onclick="login()">
+      دخول ❤️
+    </button>
+
+    <div id="error">
+      الباسورد غلط ❤️
+    </div>
+
+  </div>
+
+  <script>
+    function login() {
+
+      let password =
+        document.getElementById("password").value;
+
+      if (password === "1872026") {
+
+        window.location.href = "home.html";
+
+      } else {
+
+        document.getElementById("error").style.display = "block";
+
       }
-
-      50% {
-        transform: scale(1.2);
-      }
-
     }
+  </script>
 
-    @keyframes appear {
-
-      from {
-        opacity: 0;
-        transform: translateY(40px) scale(0.95);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-
-    }
-
-  </style></head><body>  <!-- قلوب متحركة -->  <div class="floating-heart" style="left:10%; animation-duration:8s;">❤️</div>  <div class="floating-heart" style="left:25%; animation-duration:11s;">💕</div>  <div class="floating-heart" style="left:45%; animation-duration:9s;">💗</div>  <div class="floating-heart" style="left:65%; animation-duration:12s;">❤️</div>  <div class="floating-heart" style="left:85%; animation-duration:10s;">💕</div>  <!-- الدخول -->  <div class="login"><div class="heart">
-  ❤️
-</div>
-
-<h1>
-  Souhaila
-</h1>
-
-<div class="subtitle">
-
-  في مكان صغير هنا معمول مخصوص ليكي... 🤍
-
-  <br>
-
-  بس الأول لازم تثبتي إنك هي ❤️
-
-</div>
-
-
-<input
-  type="password"
-  id="password"
-  placeholder="اكتبي السر هنا..."
->
-
-
-<button onclick="checkPassword()">
-
-  ادخلي ❤️
-
-</button>
-
-
-<div id="error">
-
-  الباسورد مش صح 😌❤️
-
-</div>
-
-
-<div class="secret">
-
-  Made with love ❤️
-
-</div>
-
-  </div><script>
-
-function checkPassword() {
-
-  const password =
-    document.getElementById("password").value;
-
-  if (password === "1872026") {
-
-    window.location.href = "home.html";
-
-  } else {
-
-    document.getElementById("error").style.display = "block";
-
-  }
-
-}
-
-
-document
-  .getElementById("password")
-  .addEventListener("keydown", function(event) {
-
-    if (event.key === "Enter") {
-
-      checkPassword();
-
-    }
-
-  });
-
-</script></body></html>
+</body>
+</html>
