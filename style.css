@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  }
+
+body {
+min-height: 100vh;
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg, #fff0f5, #ffd1e3);
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden;
+color: #4a2433;
+}
+
+.container {
+width: 92%;
+max-width: 500px;
+padding: 45px 25px;
+text-align: center;
+background: rgba(255, 255, 255, 0.8);
+border-radius: 30px;
+box-shadow: 0 15px 45px rgba(80, 30, 50, 0.18);
+backdrop-filter: blur(12px);
+animation: appear 1.2s ease;
+}
+
+.heart {
+font-size: 70px;
+margin-bottom: 20px;
+animation: heartbeat 1.3s infinite;
+}
+
+h1 {
+font-size: 40px;
+margin-bottom: 15px;
+}
+
+p {
+font-size: 18px;
+line-height: 1.9;
+margin-bottom: 20px;
+}
+
+.date {
+font-size: 15px;
+opacity: 0.65;
+margin-bottom: 25px;
+}
+
+button {
+border: none;
+padding: 14px 30px;
+border-radius: 30px;
+background: #e75480;
+color: white;
+font-size: 17px;
+cursor: pointer;
+box-shadow: 0 8px 20px rgba(231, 84, 128, 0.3);
+transition: 0.3s;
+}
+
+button:hover {
+transform: scale(1.06);
+}
+
+#message {
+display: none;
+margin-top: 25px;
+font-size: 17px;
+line-height: 1.9;
+animation: appear 0.8s ease;
+}
+
+@keyframes heartbeat {
+0%, 100% {
+transform: scale(1);
+}
+
+50% {
+transform: scale(1.18);
+}
+}
+
+@keyframes appear {
+from {
+opacity: 0;
+transform: translateY(25px);
+}
+
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+@media (max-width: 500px) {
+.container {
+padding: 35px 20px;
+}
+
+h1 {
+font-size: 34px;
+}
+
+p {
+font-size: 17px;
+}
+}
