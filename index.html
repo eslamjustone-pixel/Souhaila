@@ -1,196 +1,309 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
-<head>
+<!DOCTYPE html><html lang="ar" dir="rtl"><head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Souhaila ❤️</title>  <style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>For Souhaila ❤️</title>  <style>
+
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       min-height: 100vh;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #fff0f5, #ffd1e3);
+      background:
+        radial-gradient(circle at top, #ffedf5, transparent 45%),
+        linear-gradient(135deg, #180812, #3b1025, #180812);
+
+      color: white;
+
       display: flex;
       justify-content: center;
       align-items: center;
+
       overflow: hidden;
-      color: #4a2433;
     }
 
-    /* شاشة الباسورد */
-    #login {
+    /* القلوب */
+
+    .floating-heart {
+      position: fixed;
+      bottom: -30px;
+
+      font-size: 20px;
+
+      opacity: 0.7;
+
+      animation: floatUp linear infinite;
+
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+
+      from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+
+    }
+
+    /* شاشة الدخول */
+
+    .login {
+
       width: 90%;
-      max-width: 400px;
+      max-width: 430px;
+
       text-align: center;
-      background: rgba(255,255,255,0.85);
-      padding: 40px 25px;
-      border-radius: 30px;
-      box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+
+      padding: 45px 28px;
+
+      border-radius: 35px;
+
+      background: rgba(255,255,255,0.08);
+
+      border: 1px solid rgba(255,255,255,0.15);
+
+      backdrop-filter: blur(20px);
+
+      box-shadow:
+        0 25px 80px rgba(0,0,0,0.5);
+
+      animation: appear 1.5s ease;
+
     }
 
-    #login .heart {
-      font-size: 65px;
-      animation: heartbeat 1.3s infinite;
+    .heart {
+
+      font-size: 75px;
+
       margin-bottom: 20px;
+
+      animation: heartbeat 1.4s infinite;
+
     }
 
-    #login h1 {
-      margin-bottom: 10px;
-      font-size: 30px;
+    h1 {
+
+      font-size: 38px;
+
+      margin-bottom: 12px;
+
+      letter-spacing: 1px;
+
     }
 
-    #login p {
-      margin-bottom: 25px;
-      color: #76505e;
+    .subtitle {
+
+      color: #ffd7e6;
+
+      font-size: 17px;
+
+      line-height: 1.8;
+
+      margin-bottom: 30px;
+
     }
 
     input {
+
       width: 100%;
-      padding: 15px;
-      border: 2px solid #f1b6ca;
-      border-radius: 25px;
-      outline: none;
+
+      padding: 16px;
+
+      border-radius: 30px;
+
+      border: 1px solid rgba(255,255,255,0.25);
+
+      background: rgba(255,255,255,0.1);
+
+      color: white;
+
       text-align: center;
+
       font-size: 18px;
+
+      outline: none;
+
       margin-bottom: 15px;
+
+    }
+
+    input::placeholder {
+
+      color: #e9c7d5;
+
     }
 
     button {
+
+      width: 100%;
+
+      padding: 15px;
+
       border: none;
-      padding: 14px 30px;
-      border-radius: 25px;
-      background: #e75480;
+
+      border-radius: 30px;
+
+      background: linear-gradient(
+        135deg,
+        #ff5c8a,
+        #e83e70
+      );
+
       color: white;
-      font-size: 17px;
+
+      font-size: 18px;
+
       cursor: pointer;
+
+      box-shadow:
+        0 10px 30px rgba(255,80,130,0.35);
+
+      transition: 0.3s;
+
+    }
+
+    button:active {
+
+      transform: scale(0.96);
+
     }
 
     #error {
-      color: #d6336c;
+
+      display: none;
+
       margin-top: 15px;
-      display: none;
+
+      color: #ff9ab8;
+
+      font-size: 14px;
+
     }
 
-    /* الموقع */
-    #website {
-      display: none;
-      width: 92%;
-      max-width: 500px;
-      text-align: center;
-      background: rgba(255,255,255,0.8);
-      padding: 45px 25px;
-      border-radius: 30px;
-      box-shadow: 0 15px 45px rgba(0,0,0,0.15);
-      animation: appear 1s ease;
-    }
+    .secret {
 
-    #website .big-heart {
-      font-size: 70px;
-      animation: heartbeat 1.3s infinite;
-      margin-bottom: 20px;
-    }
+      margin-top: 25px;
 
-    #website h1 {
-      font-size: 40px;
-      margin-bottom: 15px;
-    }
+      font-size: 13px;
 
-    #website p {
-      font-size: 18px;
-      line-height: 2;
-      margin-bottom: 20px;
-    }
+      color: #cfa9b8;
 
-    .date {
-      opacity: 0.65;
-      margin-bottom: 25px;
     }
 
     @keyframes heartbeat {
-      0%, 100% {
+
+      0%,100% {
         transform: scale(1);
       }
 
       50% {
-        transform: scale(1.18);
+        transform: scale(1.2);
       }
+
     }
 
     @keyframes appear {
+
       from {
         opacity: 0;
-        transform: translateY(25px);
+        transform: translateY(40px) scale(0.95);
       }
 
       to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
       }
+
     }
-  </style></head><body>  <!-- شاشة الباسورد -->  <div id="login"><div class="heart">❤️</div>
 
-<h1>Souhaila</h1>
+  </style></head><body>  <!-- قلوب متحركة -->  <div class="floating-heart" style="left:10%; animation-duration:8s;">❤️</div>  <div class="floating-heart" style="left:25%; animation-duration:11s;">💕</div>  <div class="floating-heart" style="left:45%; animation-duration:9s;">💗</div>  <div class="floating-heart" style="left:65%; animation-duration:12s;">❤️</div>  <div class="floating-heart" style="left:85%; animation-duration:10s;">💕</div>  <!-- الدخول -->  <div class="login"><div class="heart">
+  ❤️
+</div>
 
-<p>المكان ده مخصوص ليكي ❤️</p>
+<h1>
+  Souhaila
+</h1>
+
+<div class="subtitle">
+
+  في مكان صغير هنا معمول مخصوص ليكي... 🤍
+
+  <br>
+
+  بس الأول لازم تثبتي إنك هي ❤️
+
+</div>
+
 
 <input
   type="password"
   id="password"
-  placeholder="اكتبي الباسورد"
+  placeholder="اكتبي السر هنا..."
 >
 
+
 <button onclick="checkPassword()">
-  دخول ❤️
+
+  ادخلي ❤️
+
 </button>
 
+
 <div id="error">
-  الباسورد غلط يا جميلة ❤️
+
+  الباسورد مش صح 😌❤️
+
 </div>
 
-  </div>  <!-- الموقع بعد الباسورد -->  <div id="website"><div class="big-heart">❤️</div>
 
-<h1>Souhaila</h1>
+<div class="secret">
 
-<p>
-  إلى أجمل واحدة في حياتي...
-  <br>
-  وجودك في حياتي خلّى لكل حاجة معنى أجمل ❤️
-</p>
+  Made with love ❤️
 
-<div class="date">
-  قصتنا بدأت يوم 3/7/2026 ❤️
 </div>
 
-<p>
-  ولسه أجمل الحكاية ما بدأتش... ❤️
-</p>
+  </div><script>
 
-  </div>  <script>
-    function checkPassword() {
+function checkPassword() {
 
-      const password = document.getElementById("password").value;
+  const password =
+    document.getElementById("password").value;
 
-      if (password === "1872026") {
+  if (password === "1872026") {
 
-        document.getElementById("login").style.display = "none";
-        document.getElementById("website").style.display = "block";
+    window.location.href = "home.html";
 
-      } else {
+  } else {
 
-        document.getElementById("error").style.display = "block";
+    document.getElementById("error").style.display = "block";
 
-      }
+  }
+
+}
+
+
+document
+  .getElementById("password")
+  .addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+
+      checkPassword();
+
     }
 
-    document.getElementById("password").addEventListener("keydown", function(event) {
+  });
 
-      if (event.key === "Enter") {
-        checkPassword();
-      }
-
-    });
-  </script></body>
-</html>
+</script></body></html>
