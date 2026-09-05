@@ -1,5 +1,4 @@
-<!DOCTYPE html><html lang="en">
-  <link rel="stylesheet" href="style.css">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +12,7 @@
     body {
       min-height: 100vh;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #fff0f5, #ffd6e7);
+      background: linear-gradient(135deg, #fff0f5, #ffd1e3);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -21,63 +20,96 @@
       color: #4a2433;
     }
 
-    .container {
-      width: 92%;
-      max-width: 500px;
+    /* شاشة الباسورد */
+    #login {
+      width: 90%;
+      max-width: 400px;
       text-align: center;
+      background: rgba(255,255,255,0.85);
       padding: 40px 25px;
-      background: rgba(255,255,255,0.75);
       border-radius: 30px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-      backdrop-filter: blur(10px);
+      box-shadow: 0 15px 45px rgba(0,0,0,0.15);
     }
 
-    .heart {
-      font-size: 70px;
-      animation: beat 1.3s infinite;
+    #login .heart {
+      font-size: 65px;
+      animation: heartbeat 1.3s infinite;
       margin-bottom: 20px;
     }
 
-    h1 {
-      font-size: 38px;
-      margin-bottom: 15px;
+    #login h1 {
+      margin-bottom: 10px;
+      font-size: 30px;
     }
 
-    p {
+    #login p {
+      margin-bottom: 25px;
+      color: #76505e;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #f1b6ca;
+      border-radius: 25px;
+      outline: none;
+      text-align: center;
       font-size: 18px;
-      line-height: 1.8;
-      margin-bottom: 25px;
-    }
-
-    .date {
-      font-size: 15px;
-      opacity: 0.7;
-      margin-bottom: 25px;
+      margin-bottom: 15px;
     }
 
     button {
       border: none;
-      padding: 14px 28px;
-      border-radius: 30px;
+      padding: 14px 30px;
+      border-radius: 25px;
       background: #e75480;
       color: white;
       font-size: 17px;
       cursor: pointer;
-      transition: 0.3s;
     }
 
-    button:hover {
-      transform: scale(1.05);
-    }
-
-    #message {
+    #error {
+      color: #d6336c;
+      margin-top: 15px;
       display: none;
-      margin-top: 25px;
-      font-size: 17px;
-      line-height: 1.8;
     }
 
-    @keyframes beat {
+    /* الموقع */
+    #website {
+      display: none;
+      width: 92%;
+      max-width: 500px;
+      text-align: center;
+      background: rgba(255,255,255,0.8);
+      padding: 45px 25px;
+      border-radius: 30px;
+      box-shadow: 0 15px 45px rgba(0,0,0,0.15);
+      animation: appear 1s ease;
+    }
+
+    #website .big-heart {
+      font-size: 70px;
+      animation: heartbeat 1.3s infinite;
+      margin-bottom: 20px;
+    }
+
+    #website h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    #website p {
+      font-size: 18px;
+      line-height: 2;
+      margin-bottom: 20px;
+    }
+
+    .date {
+      opacity: 0.65;
+      margin-bottom: 25px;
+    }
+
+    @keyframes heartbeat {
       0%, 100% {
         transform: scale(1);
       }
@@ -86,32 +118,79 @@
         transform: scale(1.18);
       }
     }
-  </style></head><body>  <div class="container"><div class="heart">❤️</div>
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style></head><body>  <!-- شاشة الباسورد -->  <div id="login"><div class="heart">❤️</div>
+
+<h1>Souhaila</h1>
+
+<p>المكان ده مخصوص ليكي ❤️</p>
+
+<input
+  type="password"
+  id="password"
+  placeholder="اكتبي الباسورد"
+>
+
+<button onclick="checkPassword()">
+  دخول ❤️
+</button>
+
+<div id="error">
+  الباسورد غلط يا جميلة ❤️
+</div>
+
+  </div>  <!-- الموقع بعد الباسورد -->  <div id="website"><div class="big-heart">❤️</div>
 
 <h1>Souhaila</h1>
 
 <p>
   إلى أجمل واحدة في حياتي...
+  <br>
   وجودك في حياتي خلّى لكل حاجة معنى أجمل ❤️
 </p>
 
 <div class="date">
-  Our story started — 3/7/2026
+  قصتنا بدأت يوم 3/7/2026 ❤️
 </div>
 
-<button onclick="showMessage()">
-  اضغطي هنا ❤️
-</button>
-
-<div id="message">
-  مهما كتبت ومهما حاولت أوصف،
-  مش هقدر أوصف مكانتك عندي.
-  ربنا يخليكي ليا ونفضل دايمًا مع بعض ❤️
-</div>
+<p>
+  ولسه أجمل الحكاية ما بدأتش... ❤️
+</p>
 
   </div>  <script>
-    function showMessage() {
-      document.getElementById("message").style.display = "block";
+    function checkPassword() {
+
+      const password = document.getElementById("password").value;
+
+      if (password === "1872026") {
+
+        document.getElementById("login").style.display = "none";
+        document.getElementById("website").style.display = "block";
+
+      } else {
+
+        document.getElementById("error").style.display = "block";
+
+      }
     }
+
+    document.getElementById("password").addEventListener("keydown", function(event) {
+
+      if (event.key === "Enter") {
+        checkPassword();
+      }
+
+    });
   </script></body>
 </html>
